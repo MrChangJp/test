@@ -3,7 +3,7 @@
 #include "game.h"
 
 static int r = 0, c = 0;
-static int nums = 0;
+
 
 //初始化数组
 //arr：初始化需要的数组
@@ -82,7 +82,7 @@ void CreateMine(char arr[ROWS][CLOS],  int num){
 void Player(char mine[ROWS][CLOS], char show[ROWS][CLOS]){
 	static int r = 0, c = 0;
 	while (1){
-		if ()
+		
 		printf("请输入坐标(用空格隔开)>");
 		scanf("%d %d", &r, &c);
 		if (r<1 || r>ROW || c<1 || c>CLO){
@@ -103,11 +103,34 @@ void Player(char mine[ROWS][CLOS], char show[ROWS][CLOS]){
 		else if (cha == 'M'){
 			
 			sum(mine,show,r,c);
+			int nums = GameOver(show,ROW,CLO);
+			if (nums <= NUM){
+				printf("\n**************************\n");
+				printf("*****  恭喜您获胜啦！  *****\n");
+				printf("**************************\n\n");
+				
+				break;
+
+			}
 			DisplayArr(show, ROWS, CLOS,1);
-			DisplayArr(mine, ROWS, CLOS, 1);
+			//DisplayArr(mine, ROWS, CLOS, 1);
 		}
 
 	}
+
+}
+
+int GameOver(char arr[ROWS][CLOS],int x,int y){
+	int nums = 0;
+	for (int i = 1; i <= x; i++){
+		for (int j = 1; j <= y; j++){
+			if (arr[i][j] == '*'){
+				nums++;
+			}
+		}
+
+	}
+	return nums;
 
 }
 
