@@ -345,8 +345,6 @@ double test19(int n,int k ){
 
 	}
 
-
-
 	return 0;
 }
 int main(){
