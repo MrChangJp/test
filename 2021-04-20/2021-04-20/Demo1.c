@@ -16,7 +16,6 @@ void test1(){
 		}
 		num /= 2;
 	}
-	
 	printf("%d", count);
 }
 
